@@ -11,3 +11,6 @@ crypto_post is a jquery library which use RSA encryption algorithm to encrypt da
 USAGE
 ===========
 You have to generate RSA keys on backend system. So, you must send public key to clients for crypto_post. Sample PHP implementation can be found under the "demo" folder. 
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/mmetince/crypto_post/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
