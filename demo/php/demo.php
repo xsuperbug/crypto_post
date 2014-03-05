@@ -14,7 +14,6 @@ $_SESSION['public_key'] = $publickey;
         <script type="application/javascript" src="../../js/jquery.cryptopost.js"></script>
         <script>
             var public_key = '<?php echo preg_replace('/\s+/', ' ', trim($_SESSION['public_key']));?>';
-            var private_key = '<?php echo preg_replace('/\s+/', ' ', trim($_SESSION['private_key']));?>';
         </script>
     </head>
     <body>
