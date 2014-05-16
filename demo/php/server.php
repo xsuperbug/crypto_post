@@ -1,6 +1,18 @@
 <?php
 // Session start to reach priv8 and public key.
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+
+function debug_to_console( $data ) {
+
+    if ( is_array( $data ) )
+        $output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
+    else
+        $output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
+
+    echo $output;
+}
 
 include('lib/Crypt/RSA.php');
 $rsa = new Crypt_RSA();
@@ -12,10 +24,7 @@ $rsa->setEncryptionMode(CRYPT_RSA_ENCRYPTION_PKCS1);
 // Decryption of post body
 $ciphertext = $rsa->decrypt(base64_decode($_POST['encrypted_data']));
 
-echo "<pre>";
-echo "<b>Post body</b><br>";
-print_r(@$_REQUEST);
-echo "</pre>";
-echo "<b>Plain-text of post body.</b><br>";
+
+debug_to_console( @$_REQUEST );
 echo $ciphertext;
 ?>
